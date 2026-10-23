@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carlos de Loño — Junior Software Developer</title>
+<style>
+:root{--bg:#070a14;--panel:#0d1224;--panel2:#10162b;--line:#1e2745;--text:#f1f3fa;--muted:#9aa3bf;--purple:#7c5cff;--blue:#4b7cff;--cyan:#62d9ff;--green:#5ee6a8;--glow:rgba(124,92,255,.22)}
+body.light{--bg:#f4f6fc;--panel:#fff;--panel2:#eef1fa;--line:#d7ddf0;--text:#12172b;--muted:#5b6482;--glow:rgba(124,92,255,.12)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(circle at 80% 5%,rgba(90,60,200,.20),transparent 32%),radial-gradient(circle at 5% 40%,rgba(50,90,200,.10),transparent 30%),var(--bg);color:var(--text);font-family:Inter,"Segoe UI",Arial,sans-serif;line-height:1.5}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(1200px,92vw);margin:auto}
+.nav{position:sticky;top:0;z-index:50;height:68px;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:100%}
+.brand{display:flex;align-items:center;gap:12px;font-weight:700;font-size:15px}
+.logo{width:34px;height:34px;border-radius:9px;border:1px solid var(--purple);display:grid;place-items:center;font-weight:800;background:rgba(124,92,255,.12);box-shadow:0 0 20px var(--glow)}
+.brand small{display:block;color:var(--muted);font-size:10px;font-weight:400}
+.links{display:flex;gap:26px;font-size:13px;color:var(--muted)}
+.links a:hover,.links a.active{color:var(--text)}
+.links a.active{border-bottom:2px solid var(--purple);padding-bottom:4px}
+.navr{display:flex;align-items:center;gap:12px}
+.icon img{width:17px;height:17px}body.light .icon img.inv{filter:invert(1)}.pimg{width:50px;height:50px;border-radius:12px;object-fit:cover;flex:none}.pf{width:50px;height:50px;border-radius:12px;flex:none;display:grid;place-items:center;font:700 18px sans-serif;color:#fff;background:linear-gradient(135deg,#ff7a1a,#c2410c)}.icon{width:34px;height:34px;border-radius:9px;border:1px solid var(--line);background:transparent;color:var(--text);cursor:pointer;display:grid;place-items:center;font-size:15px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:11px 18px;border-radius:9px;border:1px solid var(--blue);font-size:12px;font-weight:600;cursor:pointer;background:transparent;color:var(--text);transition:.2s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px var(--glow)}
+.primary{background:linear-gradient(135deg,#5b7dff,#7c4dff);border:0;color:#fff}
+section{padding:80px 0;border-top:1px solid var(--line)}
+.eyebrow{font:11px ui-monospace,Consolas,monospace;letter-spacing:.2em;color:#8f9cff;text-transform:uppercase;margin-bottom:10px}
+h2{font-size:32px;letter-spacing:-.03em;margin:0 0 28px}
+/* hero */
+.hero{border:0;padding:70px 0 60px}
+.heroGrid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+h1{font-size:clamp(40px,5.2vw,64px);line-height:1.05;letter-spacing:-.04em;margin:0 0 22px}
+h1 span{background:linear-gradient(90deg,#5b8cff,#a06bff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.intro{color:var(--muted);max-width:540px;font-size:15px;line-height:1.7}
+.actions{display:flex;gap:12px;margin:28px 0 22px;flex-wrap:wrap}
+.social{display:flex;gap:10px}
+.terminal{background:#0a0e1c;border:1px solid #2b3560;border-radius:14px;box-shadow:0 30px 70px rgba(0,0,0,.45),0 0 60px var(--glow);overflow:hidden}
+.termbar{display:flex;align-items:center;gap:7px;padding:11px 14px;border-bottom:1px solid #1d2442;font:11px monospace;color:#7b84a8}
+.termbar i{width:9px;height:9px;border-radius:50%}.termbar i:nth-child(1){background:#ff5f57}.termbar i:nth-child(2){background:#febc2e}.termbar i:nth-child(3){background:#28c840}
+.termbar b{margin-left:auto;font-weight:400}
+.terminal pre{margin:0;padding:22px;font:13px/1.9 ui-monospace,Consolas,monospace;color:#d8dcf0;white-space:pre-wrap;min-height:340px;color:#e6e9f7}
+.g{color:var(--green)}.p{color:#b49bff}.c{color:var(--cyan)}
+.cursor{display:inline-block;width:8px;height:15px;background:var(--green);vertical-align:middle;animation:b 1s steps(2) infinite}@keyframes b{50%{opacity:0}}
+/* about */
+.aboutGrid{display:grid;grid-template-columns:1.1fr .8fr 1fr;gap:34px;align-items:start}
+.aboutGrid p{color:var(--muted);font-size:14px;line-height:1.75}
+.photo{aspect-ratio:3/4;border-radius:14px;border:1px solid var(--purple);background:linear-gradient(160deg,#2a2f8f,#111633 60%,#3a1f7a);display:grid;place-items:center;color:#8f9cff;font:12px monospace;text-align:center;box-shadow:0 0 40px var(--glow)}
+.photo img{width:100%;height:100%;object-fit:cover;border-radius:13px}.photo b{display:block;font-size:54px;margin-bottom:8px;color:#fff;opacity:.85}
+.stats{display:flex;gap:26px;margin:22px 0}.stats div b{font-size:19px;display:block}.stats div span{font-size:11px;color:var(--muted)}
+.card{border:1px solid var(--line);background:var(--panel);border-radius:12px}
+.edu{padding:6px 18px}.edu .row{display:flex;gap:14px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line)}.edu .row:last-child{border:0}
+.badge{width:44px;height:44px;border-radius:10px;display:grid;place-items:center;font-size:20px;flex:none}
+.row b{font-size:14px;display:block}.row small{display:block;color:var(--muted);font-size:12px}
+.tools{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:12px}
+.tool{padding:14px 6px;text-align:center;font-size:11px;color:var(--muted);border:1px solid var(--line);border-radius:10px;background:var(--panel)}.tool img{display:block;width:26px;height:26px;margin:0 auto 8px}body.light .tool img.inv{filter:invert(1)}.tool b{display:block;font-size:20px;color:var(--text);margin-bottom:4px}
+h4{margin:22px 0 4px;font-size:15px}
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.skill{padding:20px;border:1px solid var(--line);border-radius:12px;background:var(--panel);transition:.25s}
+.skill:hover{border-color:var(--purple);transform:translateY(-4px);box-shadow:0 14px 34px var(--glow)}
+.skill .ic{width:38px;height:38px;border-radius:50%;border:1px solid var(--purple);display:grid;place-items:center;margin-bottom:14px;background:rgba(124,92,255,.10)}
+.skill h3{margin:0 0 8px;font-size:15px}.skill p{margin:0;color:var(--muted);font-size:12px;line-height:1.7}
+/* projects */
+.head{display:flex;justify-content:space-between;align-items:end}.head a{color:#8f9cff;font-size:12px;text-decoration:underline}
+.projects{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.project{padding:22px;border:1px solid var(--line);border-radius:14px;background:linear-gradient(160deg,var(--panel2),var(--panel));display:flex;flex-direction:column;transition:.25s}
+.project:hover{border-color:var(--purple);box-shadow:0 14px 40px var(--glow)}
+.ph{display:flex;gap:14px;align-items:center;margin-bottom:12px}
+.ph .badge{width:50px;height:50px;font-size:24px;border:1px solid var(--purple);background:rgba(124,92,255,.1)}
+.ph h3{margin:0;font-size:17px}.ph small{color:var(--muted);font-size:11px}
+.project p{color:var(--muted);font-size:13px;line-height:1.7;margin:0 0 14px}
+.tags{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:16px}
+.tag{padding:5px 10px;border:1px solid #2c3766;border-radius:99px;font-size:10px;color:#c5cbe8;background:rgba(75,124,255,.08)}
+.shot{margin:auto 0 14px;display:flex;gap:10px;justify-content:center;align-items:flex-start;height:290px;overflow:hidden;padding:12px 8px 0;border-radius:10px;border:1px solid #2c3766;background:radial-gradient(circle at 50% 0,rgba(124,92,255,.22),transparent 70%)}
+.shot img{height:100%;width:auto;max-width:48%;object-fit:cover;object-position:top;border-radius:14px 14px 0 0;border:2px solid #2f3a72;box-shadow:0 10px 30px rgba(0,0,0,.5)}
+.shot.wide{flex-direction:column;align-items:center;gap:8px}.shot.wide img{width:92%;height:auto;max-width:92%;border-radius:8px}.shot.wide img+img{display:none}
+.project a.more{color:#8f9cff;font-size:12px}
+/* process */
+.two{display:grid;grid-template-columns:1.3fr 1fr;gap:50px}
+.steps{display:flex;gap:10px;align-items:flex-start}
+.step{flex:1;text-align:center}.step .badge{margin:0 auto 12px;width:58px;height:58px;border-radius:50%;border:1px solid var(--purple);background:rgba(124,92,255,.1);font-size:22px}
+.step b{font-size:13px;display:block}.step small{color:var(--muted);font-size:11px;line-height:1.5;display:block;margin-top:4px}
+.arrow{color:var(--purple);margin-top:22px}
+.checks{list-style:none;padding:0;margin:0}.checks li{padding:9px 0;color:var(--muted);font-size:14px}.checks li:before{content:"✔";color:var(--green);margin-right:12px}
+/* contact */
+.contact{border-top:0;background:linear-gradient(135deg,rgba(40,50,150,.35),rgba(90,50,180,.30));border-top:1px solid var(--line)}
+.cgrid{display:grid;grid-template-columns:1fr 1.6fr auto;gap:40px;align-items:center}
+.cgrid h2{margin:0 0 8px}.cgrid p{color:var(--muted);font-size:14px}
+.cl{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.cl a{display:flex;gap:12px;align-items:center;font-size:13px}.cl small{display:block;color:var(--muted);font-size:11px}
+.cl .badge{width:38px;height:38px;border:1px solid var(--line);background:rgba(255,255,255,.04);font-size:16px}
+footer{padding:22px 0;border-top:1px solid var(--line);color:var(--muted);font-size:12px}
+footer .wrap{display:flex;justify-content:space-between;align-items:center}
+@media(max-width:1000px){.links{display:none}.heroGrid,.aboutGrid,.two,.cgrid{grid-template-columns:1fr}.skills{grid-template-columns:repeat(2,1fr)}.projects{grid-template-columns:1fr}.photo{max-width:320px}}
+@media(max-width:560px){.skills,.cl{grid-template-columns:1fr}.steps{flex-direction:column}.arrow{display:none}.navr .btn{display:none}}
+</style>
+</head>
+<body>
+<nav class="nav"><div class="wrap">
+  <a class="brand" href="#inicio"><span class="logo">C</span><span>Carlos de Loño<small>Junior Software Developer</small></span></a>
+  <div class="links"><a class="active" href="#inicio">Inicio</a><a href="#sobre">Sobre mí</a><a href="#habilidades">Habilidades</a><a href="#proyectos">Proyectos</a><a href="#proceso">Formación</a><a href="#contacto">Contacto</a></div>
+  <div class="navr"><button class="icon" id="theme" title="Cambiar tema">☀</button><a class="btn" href="portfolio_assets/Carlos_de_Lono_CV.pdf" download="Carlos_de_Lono_CV.pdf">⬇ Descargar CV</a></div>
+</div></nav>
+
+<header class="hero" id="inicio"><div class="wrap heroGrid">
+  <div>
+    <div class="eyebrow">// Desarrollador de software</div>
+    <h1>Hola, soy Carlos<br>y creo <span>soluciones tecnológicas.</span></h1>
+    <p class="intro">Desarrollador en formación con Grado Superior en DAM, actualmente cursando Microsoft Power BI y con experiencia en el desarrollo de aplicaciones móviles, web y backend. Me apasiona la tecnología, aprender y construir proyectos que aporten valor real.</p>
+    <div class="actions"><a class="btn primary" href="#proyectos">Ver mis proyectos →</a><a class="btn" href="portfolio_assets/Carlos_de_Lono_CV.pdf" download="Carlos_de_Lono_CV.pdf">Descargar CV ⬇</a></div>
+    <div class="social"><a class="icon" href="https://github.com/CarlosGitHub91" target="_blank" rel="noopener" title="GitHub"><img class="inv" src="portfolio_assets/tool-github.svg" alt="GitHub"></a><a class="icon" href="https://www.linkedin.com/in/carlos-de-loño-goicoechea-3a3906122" target="_blank" rel="noopener" title="LinkedIn"><img src="portfolio_assets/tool-linkedin.svg" alt="LinkedIn"></a><a class="icon" href="https://www.informaticsolutions.es" target="_blank" rel="noopener" title="Web">🌐</a></div>
+  </div>
+  <div class="terminal">
+    <div class="termbar"><i></i><i></i><i></i>&nbsp;carlos@developer:~<b>LIVE</b></div>
+    <pre id="term"></pre>
+  </div>
+</div></header>
+
+<section id="sobre"><div class="wrap">
+  <div class="aboutGrid">
+    <div>
+      <div class="eyebrow">// Sobre mí</div><h2>Mi historia</h2>
+      <p>Soy Carlos, técnico superior en Desarrollo de Aplicaciones Multiplataforma (DAM). Durante el ciclo he trabajado con numerosos proyectos, tanto académicos como personales, donde he podido aplicar y ampliar mis conocimientos en múltiples tecnologías.</p>
+      <p>Actualmente estoy realizando el curso de Microsoft Power BI y tengo el certificado de Microsoft Python Developer. Me encanta seguir aprendiendo, resolver problemas y crear soluciones funcionales y eficientes.</p>
+      <div class="stats"><div><b>+3</b><span>Proyectos propios</span></div><div><b>+2</b><span>Certificaciones</span></div><div><b>100%</b><span>Ganas de seguir</span></div></div>
+      <a class="btn" href="#proceso">Conocer más sobre mí →</a>
+    </div>
+    <div class="photo"><img src="portfolio_assets/carlos.jpg" alt="Carlos de Loño"></div>
+    <div>
+      <h4 style="margin-top:0">Formación y certificaciones</h4>
+      <div class="card edu" style="margin-top:12px">
+        <div class="row"><span class="badge" style="background:#2b2fd0">A</span><div><b>Grado Superior en DAM</b><small>IES – Finalizado</small><small>2019 – 2024</small></div></div>
+        <div class="row"><span class="badge" style="background:#1b8fd6">🐍</span><div><b>Microsoft Python Developer</b><small>Certificado – Microsoft</small><small>2024</small></div></div>
+        <div class="row"><span class="badge" style="background:#e8b21c">📊</span><div><b>Microsoft Power BI</b><small>En curso</small><small>2025</small></div></div>
+      </div>
+      <h4>Herramientas que uso</h4>
+      <div class="tools"><div class="tool"><img src="portfolio_assets/tool-vscode.svg" alt="">VS Code</div><div class="tool"><img class="inv" src="portfolio_assets/tool-github.svg" alt="">GitHub</div><div class="tool"><img src="portfolio_assets/tool-postman.svg" alt="">Postman</div><div class="tool"><img src="portfolio_assets/tool-figma.svg" alt="">Figma</div></div>
+    </div>
+  </div>
+</div></section>
+
+<section id="habilidades"><div class="wrap">
+  <div class="head"><div><div class="eyebrow">// Habilidades</div><h2>Tecnologías y herramientas</h2></div><p style="color:var(--muted);font-size:13px;max-width:380px;margin:0 0 28px">Aquí tienes un resumen de las tecnologías que he trabajado y los proyectos en los que las he utilizado.</p></div>
+  <div class="skills">
+    <div class="skill"><div class="ic">⟨⟩</div><h3>Lenguajes</h3><p>Python · Java · JavaScript · Dart · C++ · SQL</p></div>
+    <div class="skill"><div class="ic">◧</div><h3>Frontend</h3><p>HTML5 · CSS3 · JavaScript · Responsive · Bootstrap</p></div>
+    <div class="skill"><div class="ic">⚙</div><h3>Backend & APIs</h3><p>Flask · REST · JSON · XML · Postman · Swagger</p></div>
+    <div class="skill"><div class="ic">🗄</div><h3>Bases de datos</h3><p>MySQL · PostgreSQL · MariaDB · SQLite · MongoDB · Firebase</p></div>
+    <div class="skill"><div class="ic">📱</div><h3>Mobile & Android</h3><p>Flutter · Android Studio · SDK · APK/AAB · Google Play</p></div>
+    <div class="skill"><div class="ic">☁</div><h3>Cloud & DevOps</h3><p>Render · GitHub · CI/CD · Variables de entorno · Azure</p></div>
+    <div class="skill"><div class="ic">🖧</div><h3>Sistemas & Redes</h3><p>Windows · Linux · SSH · Redes · Virtualización · PowerShell</p></div>
+    <div class="skill"><div class="ic">🛡</div><h3>Ciberseguridad</h3><p>Criptografía · Hashing · Seguridad web (SQL Injection · XSS)</p></div>
+    <div class="skill"><div class="ic">📈</div><h3>IA & Datos</h3><p>Pandas · NumPy · Matplotlib · spaCy · Jupyter · Power BI · DAX</p></div>
+    <div class="skill"><div class="ic">▤</div><h3>Productividad</h3><p>Excel · Power Query · Word · Docs · Presentaciones</p></div>
+    <div class="skill"><div class="ic">⟳</div><h3>Metodologías</h3><p>Desarrollo ágil · Metodologías · SCRUM (conocimiento)</p></div>
+    <div class="skill"><div class="ic">✧</div><h3>Otros</h3><p>XML · JSON · UML · Git · Documentación · Resolución de problemas</p></div>
+  </div>
+</div></section>
+
+<section id="proyectos"><div class="wrap">
+  <div class="head"><div><div class="eyebrow">// Proyectos</div><h2>Mis trabajos más importantes</h2></div><a href="#" onclick="return false" style="margin-bottom:28px">Ver todos los proyectos →</a></div>
+  <div class="projects">
+    <article class="project">
+      <div class="ph"><img class="pimg" src="portfolio_assets/platedfood-logo.jpg" alt="PlatedFood"><div><h3>PlatedFood</h3><small>Flutter · Dart · Firebase · IA</small></div></div>
+      <p>Suite de gestión para restaurantes con tres roles (cliente, trabajador y administrador): carta y pedidos, chatbot de reservas, fichaje, nóminas con PDF, recetas y analíticas. Flutter + Firebase (Auth, Firestore, Storage) y Cloud Functions.</p>
+      <div class="tags"><span class="tag">Flutter</span><span class="tag">Firebase</span><span class="tag">Riverpod</span><span class="tag">IA</span><span class="tag">Dart</span></div>
+      <div class="shot"><img src="portfolio_assets/platedfood-ingredientes.jpg" alt="PlatedFood - ingredientes"><img src="portfolio_assets/platedfood-plano.jpg" alt="PlatedFood - plano de mesas"></div><a class="more" href="https://github.com/CarlosGitHub91/PlatedFood" target="_blank" rel="noopener">Ver en GitHub →</a>
+    </article>
+    <article class="project">
+      <div class="ph"><img class="pimg" src="portfolio_assets/apuestas-logo.png" alt="Apuestas Liga"><div>      <h3>Apuestas Liga</h3><small>Java · SQL · Android</small></div></div>
+            <p>App Android de análisis de fútbol de LaLiga: probabilidades 1X2 con modelo de Poisson, generador de combinaciones de quiniela, simulador, clasificación e informes PDF. Publicada en Google Play.</p>
+            <div class="tags"><span class="tag">Java</span><span class="tag">SQL</span><span class="tag">Android</span><span class="tag">Firebase</span></div>
+            <div class="shot"><img src="portfolio_assets/apuestas-partido.jpg" alt="Apuestas Liga - selección de partido"><img src="portfolio_assets/apuestas-quiniela.jpg" alt="Apuestas Liga - quiniela"></div><a class="more" href="https://play.google.com/store/apps/details?id=com.carlosgit.apuestas&pcampaignid=web_share" target="_blank" rel="noopener">Ver en Google Play →</a>
+    </article>
+    <article class="project">
+      <div class="ph"><span class="pf">PF</span><div><h3>PCForja</h3><small>Python · Flask · SQL · JavaScript</small></div></div>
+      <p>Tienda online de PCs montados y configurador pieza a pieza con comprobación de compatibilidad, carrito, panel de administración, importación CSV y pagos con Stripe. Actualmente en desarrollo.</p>
+      <div class="tags"><span class="tag">Python</span><span class="tag">Flask</span><span class="tag">SQLAlchemy</span><span class="tag">JS</span><span class="tag">Stripe</span></div>
+      <div class="shot wide"><img src="portfolio_assets/pcforja-home.jpg" alt="PCForja - inicio"><img src="portfolio_assets/pcforja-configurador.jpg" alt="PCForja - configurador"></div><a class="more" href="#" onclick="return false">En desarrollo</a>
+    </article>
+  </div>
+</div></section>
+
+<section id="proceso"><div class="wrap two">
+  <div>
+    <div class="eyebrow">// Proceso</div><h2>Cómo trabajo</h2>
+    <div class="steps">
+      <div class="step"><span class="badge">💡</span><b>1. Planificación</b><small>Analizo requisitos y propongo la mejor solución.</small></div><span class="arrow">→</span>
+      <div class="step"><span class="badge">&lt;/&gt;</span><b>2. Desarrollo</b><small>Escribo código limpio, modular y escalable.</small></div><span class="arrow">→</span>
+      <div class="step"><span class="badge">☑</span><b>3. Pruebas</b><small>Verifico el funcionamiento y corrijo errores.</small></div><span class="arrow">→</span>
+      <div class="step"><span class="badge">☁</span><b>4. Despliegue</b><small>Publico la aplicación y la dejo lista para su uso.</small></div>
+    </div>
+  </div>
+  <div>
+    <div class="eyebrow">// Experiencia práctica</div><h2>Algo más que código</h2>
+    <ul class="checks">
+      <li>Instalación y configuración de equipos informáticos</li>
+      <li>Mantenimiento y soporte técnico</li>
+      <li>Configuración de sistemas operativos (Windows / Linux)</li>
+      <li>Trabajo con redes y servicios</li>
+      <li>Resolución de problemas y aprendizaje continuo</li>
+    </ul>
+  </div>
+</div></section>
+
+<section class="contact" id="contacto"><div class="wrap cgrid">
+  <div><div class="eyebrow">// Contacto</div><h2>¿Hablamos?</h2><p>Estoy abierto a nuevas oportunidades y proyectos. Puedes contactarme por aquí o en mis redes.</p></div>
+  <div class="cl">
+    <a href="mailto:carlosss_91@hotmail.com"><span class="badge">✉</span><span>carlosss_91@hotmail.com<small>Respuesta en menos de 24h</small></span></a>
+    <a href="#"><span class="badge">📍</span><span>Puerto de Sagunto, Valencia<small>Disponible para remoto / presencial</small></span></a>
+    <a href="tel:+34610957881"><span class="badge">☎</span><span>+34 610 957 881<small>Teléfono</small></span></a>
+    <a href="https://github.com/CarlosGitHub91" target="_blank" rel="noopener"><span class="badge">⌥</span><span>github.com/CarlosGitHub91<small>Mis proyectos y repositorios</small></span></a>
+  </div>
+  <a class="btn primary" href="mailto:carlosss_91@hotmail.com">Enviar mensaje →</a>
+</div></section>
+
+<footer><div class="wrap"><span><b>C</b> Carlos de Loño · Junior Software Developer</span><span>NIF 44882716X · Gracias por visitar mi portfolio ♡</span></div></footer>
+
+<script>
+const lines=[
+ ['$ whoami',''],['c|Carlos de Loño',''],['',''],['$ skills --list',''],
+ ['g|> Python   > Java   > JavaScript   > Dart   > C++',''],
+ ['g|> SQL   > HTML5   > CSS3   > Flutter   > Firebase',''],
+ ['g|> MySQL   > PostgreSQL   > MongoDB   > REST APIs',''],
+ ['g|> Git   > Linux   > Power BI   > Azure   > IA',''],
+ ['g|> … y mucho más',''],['','']
+];
+const t=document.getElementById('term');let html='',i=0;
+(function next(){
+  if(i>=lines.length){t.innerHTML=html+'<span class="g">$ </span><span class="cursor"></span>';return}
+  let l=lines[i][0],cls='';
+  if(l.includes('|')){[cls,l]=l.split('|')}
+  html+=(cls?'<span class="'+cls+'">'+l+'</span>':l)+'\n';
+  t.innerHTML=html;i++;setTimeout(next,260);
+})();
+document.getElementById('theme').onclick=function(){document.body.classList.toggle('light');this.textContent=document.body.classList.contains('light')?'☾':'☀'};
+const secs=[...document.querySelectorAll('header[id],section[id]')],nl=[...document.querySelectorAll('.links a')];
+addEventListener('scroll',()=>{let cur=secs[0].id;secs.forEach(s=>{if(scrollY>=s.offsetTop-120)cur=s.id});nl.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+cur))});
+</script>
+</body>
+</html>
